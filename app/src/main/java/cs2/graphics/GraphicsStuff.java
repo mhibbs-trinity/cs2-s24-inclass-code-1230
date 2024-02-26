@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
 
+
 public class GraphicsStuff extends Application {
   public void start(Stage primaryStage) {
     Canvas canva = new Canvas(600,600);
