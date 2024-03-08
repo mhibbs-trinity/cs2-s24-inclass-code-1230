@@ -21,7 +21,7 @@ public class ParticleSystem {
     parts.add(p);
   }
   public void addParticle() {
-    parts.add(new Particle(origin, Vec2.random()));
+    parts.add(new Particle(origin.clone(), Vec2.random(10)));
   }
 
   public void run(GraphicsContext g) {
@@ -30,4 +30,10 @@ public class ParticleSystem {
       parts.get(i).update();
     }
   }
+  public void addForce(Vec2 force) {
+    for(int i=0; i<parts.size(); i++) {
+      parts.get(i).addForce(force);
+    }
+  }
+
 }
