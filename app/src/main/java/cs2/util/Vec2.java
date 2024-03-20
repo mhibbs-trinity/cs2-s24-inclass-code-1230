@@ -13,6 +13,11 @@ public class Vec2 {
                     Math.random() * scale - scale/2);
   }
 
+  @Override
+  public String toString() {
+    return "(" + this.x + "," + this.y + ")";
+  }
+
   public double getX() { return this.x; }
   public double getY() { return this.y; }
 
@@ -24,6 +29,7 @@ public class Vec2 {
     this.y += other.y;
   }
 
+  @Override
   public Vec2 clone() {
     return new Vec2(this.x, this.y);
   }
