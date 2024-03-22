@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -13,6 +14,9 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class ParticleSystemApp extends Application {
+
+  public static final Image img = new Image("file:smile.png");
+
   public void start(Stage primaryStage) {
     Canvas canva = new Canvas(600,600);
     Scene sc = new Scene(new StackPane(canva));
@@ -24,11 +28,13 @@ public class ParticleSystemApp extends Application {
     //Particle p = new Particle(new Vec2(200,200), Vec2.random());
     ArrayList<ParticleSystem> ps = new ArrayList<ParticleSystem>();
     //new ParticleSystem(new Vec2(300,300));
-
+    
     AnimationTimer timer = new AnimationTimer() {
       public void handle(long t) {
         g.setFill(Color.WHITE);
         g.fillRect(0,0, 600,600);
+
+        g.drawImage(img, 100, 100, 75,75);
 
         for(int i=0; i<ps.size(); i++) {
           ps.get(i).run(g);
