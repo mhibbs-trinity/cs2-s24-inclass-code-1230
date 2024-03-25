@@ -29,11 +29,14 @@ public class ParticleSystemApp extends Application {
     ArrayList<ParticleSystem> ps = new ArrayList<ParticleSystem>();
     //new ParticleSystem(new Vec2(300,300));
     
+    Background bg = new Background(new GradientColor(Color.BLACK, Color.AQUAMARINE));
+
     AnimationTimer timer = new AnimationTimer() {
       public void handle(long t) {
-        g.setFill(Color.WHITE);
-        g.fillRect(0,0, 600,600);
+        //g.setFill(Color.WHITE);
+        //g.fillRect(0,0, 600,600);
 
+        bg.display(g);
         g.drawImage(img, 100, 100, 75,75);
 
         for(int i=0; i<ps.size(); i++) {
