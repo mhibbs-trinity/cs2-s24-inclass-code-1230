@@ -1,7 +1,13 @@
 package cs2.util;
 
-public class Vec2 {
+public class Vec2 implements Comparable<Vec2> {
   private double x, y;
+
+  public int compareTo(Vec2 other) {
+    if(this.x < other.x) return -1;
+    else if(this.x > other.x) return +1;
+    else return 0;
+  }
 
   public Vec2(double inx, double iny) {
     this.x = inx;
