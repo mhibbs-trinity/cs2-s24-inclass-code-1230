@@ -1,4 +1,5 @@
 package cs2.adt;
+import java.util.EmptyStackException;
 
 public class ArrayStack<T> implements Stack<T> {  
   private T[] arr;
@@ -21,9 +22,22 @@ public class ArrayStack<T> implements Stack<T> {
     len += 1;
   }
   public T pop() {
+    if(isEmpty()) {
+      throw new EmptyStackException();
+    }
     len -= 1;
     return arr[len];
   }
+  public T peek() {
+    if(isEmpty()) {
+      throw new EmptyStackException();
+    }
+    return arr[len-1];
+  }
+  public boolean isEmpty() {
+    return len == 0;
+  }
+
   /* Old versions of push/pop 
   public void push(T item) {
     T[] tmp = (T[])new Object[arr.length + 1];
@@ -42,10 +56,5 @@ public class ArrayStack<T> implements Stack<T> {
     arr = tmp;
     return toReturn;
   } */
-  public T peek() {
-    return arr[len-1];
-  }
-  public boolean isEmpty() {
-    return len == 0;
-  }
+  
 }
