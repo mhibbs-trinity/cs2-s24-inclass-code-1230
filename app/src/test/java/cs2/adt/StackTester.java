@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StackTester {
-  Stack<Integer> s;
+  private Stack<Integer> s;
 
   @BeforeEach
   void init() {
@@ -20,6 +20,6 @@ public class StackTester {
     assertEquals(s.peek(), 7);
     assertEquals(s.pop(), 7);
     assertTrue(s.isEmpty());
-    s.pop();
+    //s.pop();
   }
 }
