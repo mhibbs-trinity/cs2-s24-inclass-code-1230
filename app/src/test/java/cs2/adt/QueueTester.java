@@ -1,6 +1,9 @@
 package cs2.adt;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.NoSuchElementException;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -36,4 +39,33 @@ public class QueueTester {
     }
     assertTrue(q.isEmpty());
   }
+
+  @Test
+  void testExceptions() {
+    try {
+      q.dequeue();
+      //Getting here is bad
+      //assertTrue(false);
+      fail("exception not thrown for dequeue");
+    }
+    catch (NoSuchElementException e) {
+      //Getting here is good
+    }
+    catch (Exception e) {
+      //Getting here is bad
+      fail("unexpected exception from dequeue");
+    }
+
+    q.enqueue(12);
+    try {
+      q.dequeue();
+      //Getting here is good
+    }
+    catch (NoSuchElementException e) {
+      fail("Excpetion thrown when it shouldn't be");
+    }
+
+
+  }
+
 }
